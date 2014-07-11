@@ -1,0 +1,39 @@
+﻿  if (enemiesArray[i].idle > 0) {
+                enemiesArray[i].idle--;
+            } else {
+                
+                if (isPressed && collision(enemiesArray[i], mouseObj)) {
+                    score++;
+                    for (var part = 0; part < 30 ; part++) {
+                        setParticle(enemiesArray[i].x + enemiesArray[i].scaleX * enemiesArray[i].width / 2, enemiesArray[i].y + enemiesArray[i].scaleY * enemiesArray[i].height / 2, Math.random() * 5 - 2.5, Math.random() * 5 - 2.5);
+                    }
+                    var rnd = Math.floor(Math.random() * 2);
+                    if (rnd == 0) {
+                        enemiesArray[i].x = (Math.floor(Math.random() * 2) * (canvas.width + enemiesArray[i].width * enemiesArray[i].scaleX)) - enemiesArray[i].width * enemiesArray[i].scaleX;
+                        enemiesArray[i].y = Math.random() * (canvas.height - enemiesArray[i].height * enemiesArray[i].scaleY);
+                      
+                    } else {
+                        enemiesArray[i].y = (Math.floor(Math.random() * 2) * (canvas.height + enemiesArray[i].height * enemiesArray[i].scaleY)) - enemiesArray[i].height * enemiesArray[i].scaleY;
+                        enemiesArray[i].x = Math.random() * (canvas.width - enemiesArray[i].width * enemiesArray[i].scaleX);
+                   
+                    }
+                    enemiesArray[i].idle = Math.random() * 120;
+                }
+                                
+
+                if (collision(playerObj, enemiesArray[i])) {                    
+                    health --;
+                } else {
+                    var angle = getAngleRad(playerObj, enemiesArray[i]);
+                    enemiesArray[i].velX = Math.cos(angle) * 1.5;
+                    enemiesArray[i].velY = Math.sin(angle) * 1.5;
+                    updateObjLocation(enemiesArray[i]);
+                    if (i < 9) {
+                        textArray[i].x = enemiesArray[i].x + enemiesArray[i].scaleX * enemiesArray[i].width / 3;
+                    } else {
+                        textArray[i].x = enemiesArray[i].x + enemiesArray[i].scaleX * enemiesArray[i].width / 6;
+                    }
+                    textArray[i].y = enemiesArray[i].y + enemiesArray[i].scaleY * enemiesArray[i].height / 3;
+                }
+            }
+            

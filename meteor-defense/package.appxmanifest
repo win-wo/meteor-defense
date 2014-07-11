@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+  <Identity Name="meteor-defense" Version="1.0.0.0" Publisher="CN=publisher" />
+  <Properties>
+    <DisplayName>Meteor defense</DisplayName>
+    <PublisherDisplayName>publisher</PublisherDisplayName>
+    <Logo>images\storelogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.2.1</OSMinVersion>
+    <OSMaxVersionTested>6.2.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" StartPage="default.html">
+      <VisualElements DisplayName="Meteor defense" Logo="images\logo.png" SmallLogo="images\smalllogo.png" Description="Try to survive as long as possible while meteor fall down. Bunker regenerates ammo and the bunker with a red arrow can shoot meteor by clicking where you want to shoot. Building gives more point when kept alive." ForegroundText="light" BackgroundColor="#222222">
+        <DefaultTile ShowName="noLogos" WideLogo="images\wide.png" ShortName="Meteor defense" />
+        <SplashScreen Image="images\splashscreen.png" />
+        <InitialRotationPreference>
+          <Rotation Preference="landscape" />
+        </InitialRotationPreference>
+      </VisualElements>
+    </Application>
+  </Applications>
+</Package>
